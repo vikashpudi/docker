@@ -7,7 +7,7 @@ stages {
 	stage('git cloneing') {
 		steps {
          sh "pwd"
-         sh"ls"
+         sh"cd"
 		 sh "docker image build -t springpet:1.9"
          sh"docker container run -d springpet:1.9"
 		 
