@@ -1,0 +1,17 @@
+pipeline { 
+agent{label 'ANY'}
+
+parameters { choice(name: 'BRANCH_SELECT', choices: ['package', 'install' , 'clean' , 'depoly' ], description:  'select the branch ')
+             string(name: 'BRANCH', defaultValue: 'master', description: 'Who should I say hello to?') }
+stages {
+	stage('git cloneing') {
+		steps {
+         sh "pwd"
+         sh"ll"
+		 sh "docker image build -t springpet:1.9"
+         sh"docker container run -d springpet:1.9"
+		 
+		}
+	    }
+	 }
+  }
